@@ -30,7 +30,7 @@ var sendNotification = async function() {
   } 
   else {
     context.text = BARK_TEXT;
-    await admin.firestore().collection('hubs/emma/messages').add({
+    await admin.firestore().collection('hubs/sheldon/messages').add({
       text: context.text,
       createTime: admin.firestore.FieldValue.serverTimestamp(),
     }).then((ref) => {
