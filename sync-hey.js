@@ -1,7 +1,7 @@
 const {admin} = require('./firebase-admin');
 
 function syncHey() {
-  admin.firestore().collection('hubs').doc('emma').set({
+  admin.firestore().collection('hubs').doc('sheldon').set({
     profile: {
       presence: {
         lastUpdate: admin.firestore.FieldValue.serverTimestamp(),

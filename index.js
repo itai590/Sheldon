@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const SoundDetector  = require('./sound-detector');
+const SoundDetector = require('./sound-detector');
 const hey = require('./hey');
 const syncHey = require('./sync-hey');
 
@@ -19,7 +19,7 @@ if (fs.existsSync(configPath)) {
 	try {
 		Object.assign(config, JSON.parse(fs.readFileSync(configPath, { encoding: 'utf8' })));
 	}
-	catch(err) {
+	catch (err) {
 		console.error("couldn't read config.json", err);
 	}
 }
@@ -34,7 +34,7 @@ hey.on('reset', () => {
 	detections = 0;
 });
 
-soundDetector.on("detected", ({duration,max,rms}) => {
+soundDetector.on("detected", ({ duration, max, rms }) => {
 	console.log("detected " + rms);
 	if (rms > config.MAX_RMS_AMPLITUDE) {
 		if (++detections > 3) {
