@@ -1,0 +1,11 @@
+version: '2'
+services:
+  hey-sheldon:
+    container_name: hey-sheldon-backend
+    image: hey-sheldon:latest
+    build: .
+    command: node start
+    volumes:
+      - /home/pi/Sheldon/config.json:/app/config.json
+    devices:
+      - /dev/snd:/dev/snd
