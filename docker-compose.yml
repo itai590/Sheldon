@@ -9,3 +9,6 @@ services:
       - /home/pi/Sheldon/config.json:/app/config.json
     devices:
       - /dev/snd:/dev/snd
+
+# docker compose build
+# docker compose up -d
