@@ -37,7 +37,7 @@ hey.on('reset', () => {
 soundDetector.on("detected", ({ duration, max, rms }) => {
 	console.log("detected " + rms);
 	if (rms > config.MAX_RMS_AMPLITUDE) {
-		console.log("rms: " + rms + "> MAX_RMS_AMPLITUDE: " + MAX_RMS_AMPLITUDE + "detections: " + detections)
+		console.log("rms: " + rms + "> MAX_RMS_AMPLITUDE: " + config.MAX_RMS_AMPLITUDE + "detections: " + detections)
 		if (++detections > 3) {
 			hey.send();
 		}
