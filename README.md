@@ -1,6 +1,16 @@
+## Sends a notification when 3 Barks are detected within 60 seconds above the MAX_RMS_AMPLITUDE.
+
+
+## Start up:
+
+
+On mac:
 `brew install sox`
 
+On Linux:
+`apt-get install alsa-lib alsa-utils`
 
+## Run:
 `rm -rf node_modules`
 
 `npm cache clean --force`
