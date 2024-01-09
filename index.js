@@ -8,7 +8,7 @@ function timestamp(){
 	ts = Date();
 	// Tue Jan 09 2024 17:03:41 GMT +0200(Israel Standard Time)
 	ts = ts.replace(/GMT.*/g, "");
-	return ts + " |";
+	return ts + "|";
 }
 
 setInterval(() => {
