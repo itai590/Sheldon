@@ -35,10 +35,10 @@ hey.on('reset', () => {
 });
 
 soundDetector.on("detected", ({ duration, max, rms }) => {
-	require('log-timestamp');
+	require('log-timestamp'); //FIXME: change UTC timestamp to Israel time zone
 	console.log("detected " + rms);
 	if (rms > config.MAX_RMS_AMPLITUDE) {
-		require('log-timestamp');
+		require('log-timestamp'); // FIXME: change UTC timestamp to Israel time zone
 		console.log("detected rms (" + rms + ") > MAX_RMS_AMPLITUDE (" + config.MAX_RMS_AMPLITUDE + "), detections: " + detections)
 		if (++detections > 2) {
 			hey.send();
