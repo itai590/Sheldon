@@ -58,7 +58,6 @@ class SoundDetector extends EventEmitter {
     child.stderr.on("data", function (buf) { body += buf; });
 
     child.on("exit", () => {
-      console.log(body); // FIXME:
       var {max,duration,rms} = this._parse(body);
 
       this.emit("detected", {max,duration,rms});
