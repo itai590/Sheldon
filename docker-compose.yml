@@ -11,6 +11,8 @@ services:
       - /home/pi/Sheldon/config.json:/app/config.json
     devices:
       - /dev/snd:/dev/snd
+    environment:
+      - TZ=Israel/Tel_Aviv
 
 # docker compose build
 # docker compose up -d
