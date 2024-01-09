@@ -4,7 +4,6 @@ services:
   hey-sheldon:
     container_name: hey-sheldon-backend
     image: hey-sheldon:latest
-    build: .
     restart: always
     command: node start
     volumes:
