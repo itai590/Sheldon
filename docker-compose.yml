@@ -3,7 +3,7 @@ version: '3'
 services:
   hey-sheldon:
     container_name: hey-sheldon-backend
-    image: hey-sheldon:${${BUILD_ID}:-latest}
+    image: hey-sheldon:latest
     build: .
     restart: always
     command: node start
