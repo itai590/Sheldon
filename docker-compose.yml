@@ -5,7 +5,7 @@ services:
     container_name: hey-sheldon-backend
     image: hey-sheldon:latest
     restart: always
-    command: node start
+    command: npm start
     volumes:
       - /home/pi/Sheldon/config.json:/app/config.json
     devices:
