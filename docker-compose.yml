@@ -1,7 +1,7 @@
 # TODO: Check this docker-compose.yml file
 version: '3'
 services:
-  hey-sheldon:
+  hey:
     container_name: hey-sheldon-backend
     build:
       context: .
