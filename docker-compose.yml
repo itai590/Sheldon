@@ -3,7 +3,9 @@ version: '3'
 services:
   hey-sheldon:
     container_name: hey-sheldon-backend
-    image: hey-sheldon:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     restart: always
     command: node start
     volumes:
@@ -12,6 +14,7 @@ services:
       - /dev/snd:/dev/snd
     environment:
       - TZ=Israel/Tel_Aviv
+      - BUILD_ID=1
 
 # docker compose build
 # docker compose up -d
