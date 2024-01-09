@@ -4,6 +4,13 @@ const SoundDetector = require('./sound-detector');
 const hey = require('./hey');
 const syncHey = require('./sync-hey');
 
+function timestamp(){
+	ts = Date();
+	// Tue Jan 09 2024 17:03:41 GMT +0200(Israel Standard Time)
+	ts = ts.replace(/GMT.*/g, "");
+	return ts + " | ";
+}
+
 setInterval(() => {
 	syncHey();
 }, 60 * 1000);
@@ -37,9 +44,8 @@ hey.on('reset', () => {
 });
 
 soundDetector.on("detected", ({ duration, max, rms }) => {
-	console.log(Date() + " detected " + rms);
+	console.log(timestamp() + " detected " + rms + ", detections: " + detections)
 	if (rms > config.MAX_RMS_AMPLITUDE) {
-		console.log(Date() + " detected " + rms + ", detections: " + detections)
 		if (++detections > 2) {
 			hey.send();
 		}
