@@ -1,6 +1,8 @@
 #!/bin/bash
 repo_name="hey-sheldon"
 
+set -x
+
 # Build
 build_id=$(docker inspect $repo_name | jq -r '.[0].RepoTags[0]' | awk -F':' '{print $2}')
 build_id=$((build_id + 1))
