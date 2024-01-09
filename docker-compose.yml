@@ -3,9 +3,7 @@ version: '3'
 services:
   hey:
     container_name: hey-sheldon-backend
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: hey-sheldon:latest
     restart: always
     command: node start
     volumes:
