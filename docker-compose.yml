@@ -12,7 +12,6 @@ services:
       - /dev/snd:/dev/snd
     environment:
       - TZ=Israel/Tel_Aviv
-      - BUILD_ID=1
 
 # docker compose build
 # docker compose up -d
