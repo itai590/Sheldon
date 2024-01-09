@@ -18,6 +18,7 @@ const config = {
 if (fs.existsSync(configPath)) {
 	try {
 		Object.assign(config, JSON.parse(fs.readFileSync(configPath, { encoding: 'utf8' })));
+		console.log("MAX_RMS_AMPLITUDE: ", config.MAX_RMS_AMPLITUDE);
 	}
 	catch (err) {
 		console.error("couldn't read config.json", err);
@@ -31,15 +32,14 @@ soundDetector.start();
 let detections = 0;
 
 hey.on('reset', () => {
+	console.log("resetting detections");
 	detections = 0;
 });
 
 soundDetector.on("detected", ({ duration, max, rms }) => {
-	require('log-timestamp'); //FIXME: change UTC timestamp to Israel time zone
-	console.log("detected " + rms);
+	console.log(Date() + " detected " + rms);
 	if (rms > config.MAX_RMS_AMPLITUDE) {
-		require('log-timestamp'); // FIXME: change UTC timestamp to Israel time zone
-		console.log("detected rms (" + rms + ") > MAX_RMS_AMPLITUDE (" + config.MAX_RMS_AMPLITUDE + "), detections: " + detections)
+		console.log(Date() + " detected " + rms + ", detections: " + detections)
 		if (++detections > 2) {
 			hey.send();
 		}

@@ -13,5 +13,6 @@ docker stop hey-sheldon-backend || true
 docker rm hey-sheldon-backend || true
 
 # Run
+# docker run -d --device /dev/snd:/dev/snd --volume /home/pi/Sheldon/config.json:/app/config.json --name hey-sheldon-backend-t4 hey-sheldon:4
 docker compose up -d
 docker compose logs -f
