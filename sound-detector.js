@@ -48,16 +48,17 @@ class SoundDetector extends EventEmitter {
     }) [os.type()];
 
     args.push("-t",  "wav", "-n");
-    args.push("--no-show-progress");
+    // args.push("--no-show-progress");
     args.push("silence", "1", "0.0001", this.config.PERCENTAGE_START, "1", "0.1", this.config.PERCENTAGE_END);
     args.push("stat");
 
     var child = spawn("sox", args), body  = "";
 
     this.recorder = child;
-    child.stderr.on("data", function(buf){ body += buf; });
+    child.stderr.on("data", function (buf) { body += buf; });
 
     child.on("exit", () => {
+      console.log(body); // FIXME:
       var {max,duration,rms} = this._parse(body);
 
       this.emit("detected", {max,duration,rms});
