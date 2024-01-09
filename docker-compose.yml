@@ -11,7 +11,7 @@ services:
     devices:
       - /dev/snd:/dev/snd
     environment:
-      - TZ=Israel/Tel_Aviv
+      - TZ=Asia/Jerusalem
 
 # docker compose build
 # docker compose up -d
