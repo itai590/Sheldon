@@ -7,7 +7,7 @@
 `brew install sox`
 
 - On Linux
-`apt-get install alsa-lib alsa-utils`
+`apt-get install sox alsa-lib alsa-utils`
 
 ### Run
 `rm -rf node_modules`
